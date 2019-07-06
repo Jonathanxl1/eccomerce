@@ -55,7 +55,10 @@ class productsController extends Controller
      */
     public function show()
     {
-        return Products::all();
+        $products = Products::all();
+        return view('components.viewProducts',[
+             "products" => $products
+            ]);
     }
 
     /**

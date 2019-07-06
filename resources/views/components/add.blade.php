@@ -7,7 +7,7 @@
 		</div>
 	</div>
 	<div class="row align-content-center">
-		<form method="post" action="/profile">
+		<form method="post" action="/products">
       @csrf
       <fieldset class="form-group">
         <label for="product_name">Nombre de Producto</label>
