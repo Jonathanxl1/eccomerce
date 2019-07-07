@@ -22,5 +22,5 @@ Route::get('/add', function () {
    return view('components.add');
 });
 
-Route::post('/profile', 'productsController@create');
+Route::post('/products', 'productsController@create');
 Route::get('/products','productsController@show');
