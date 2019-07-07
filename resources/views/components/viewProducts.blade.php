@@ -27,13 +27,23 @@
 	</div>
 </div>
 <script type="text/javascript" >
+		
+
 		var shopping_cart=[];
+		var btnShop=document.getElementsByTagName('span');
 		var cart = document.getElementById('shopping_cart');
+		cart.addEventListener("click", function(){
+			location.href="/billing";
+		});
 		cart.innerHTML='Carrito('+shopping_cart.length+')';
 	function suma(id) {
+		btnShop[id-1].setAttribute('class', 'btn btn-success')
+		btnShop[id-1].innerHTML="Agregado!";
+		btnShop[id-1].setA
+
 		shopping_cart.push(id);
 		cart.innerHTML='Carrito('+shopping_cart.length+')';
-		this.classList.toggle('btn-secondary');
+		sessionStorage.shopping_cart=shopping_cart;
 	}
 </script>
 	

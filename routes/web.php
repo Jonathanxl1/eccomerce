@@ -24,3 +24,4 @@ Route::get('/add', function () {
 
 Route::post('/products', 'productsController@create');
 Route::get('/products','productsController@show');
+Route::get('/billing','productsController@billing');
