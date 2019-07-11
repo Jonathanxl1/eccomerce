@@ -3,10 +3,10 @@
 <div class="container align-content-center">
 	<div class="row">
 		<div class="col">
-			<h1 class="align-content-center">Agregar Productos</h1>
+			<h1 class="text-center">Agregar Productos</h1>
 		</div>
 	</div>
-	<div class="row align-content-center">
+	<div class="row justify-content-center">
 		<form method="post" action="/products">
       @csrf
       <fieldset class="form-group">

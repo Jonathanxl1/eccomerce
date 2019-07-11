@@ -33,7 +33,7 @@ class productsController extends Controller
         $items->best_before =$data['best_before'];
         $items->save();
         
-        return view('components.add',["Item add!"]);
+        return view('components.add');
     }
 
     /**
@@ -44,7 +44,7 @@ class productsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request->all();
     }
 
     /**
@@ -57,8 +57,36 @@ class productsController extends Controller
     {
         $products = Products::all();
         return view('components.viewProducts',[
-             "products" => $products
+             "products" => $products,
+             "title"=>"Tienda"
             ]);
+    }
+
+     public function returnProducts(Request $request)
+    {
+        /*
+        Recepcion de Pedidos por Ajax
+        returno de Peidos
+
+        @param ArrayData filtra valores null o cero
+        @param ArrayNum convierte el Array String to Array Int
+        */
+        if ($request->isJson()) {
+           
+            $data = $request->all();
+            $ArrayData=array_filter($data);
+            $ArrayNum=array_map('intval', $ArrayData);
+            $products=Products::whereIn('id',$ArrayNum)->get();
+            foreach ($products as $key ) {
+                echo $key["id"];
+                echo $key["product_name"];              
+                echo $key["price"];
+                echo "<br>";
+             }
+        }else{
+            return "False";
+        }
+        
     }
 
     /**
@@ -79,9 +107,12 @@ class productsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function billing()
+    public function billing(Request $request)
     {
-        return view('components.billing');
+        return view('components.billing',[
+            "title" => "Facturacion"
+        ]);
+       
     }
 
     /**

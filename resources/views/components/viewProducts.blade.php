@@ -16,35 +16,61 @@
     				<span  class="btn btn-primary" onclick="suma({{ $product->id }})">Agrega al Carrito</span>
   				</div>
 			</div>
-
-
-
-
-    	{{-- <p>This is product_name {{ $product->product_name }}</p>
-    	<p>This is price {{ $product->price }}</p>
-    	<p>This is amount {{ $product->amount }}</p> --}}
 	    @endforeach	
 	</div>
 </div>
-<script type="text/javascript" >
+<script type="text/javascript"  >
 		
-
-		var shopping_cart=[];
+		{{-- Inicializacion de Shopping Cart --}}
+		var shopping_cart=[0];
+		// Eliminar Contenido de Array
+		function arrayRemove(arr, value) {
+   			return arr.filter(function(ele){
+       		return ele != value;
+   		});
+		};
 		var btnShop=document.getElementsByTagName('span');
 		var cart = document.getElementById('shopping_cart');
-		cart.addEventListener("click", function(){
+			cart.addEventListener("click", function(){
 			location.href="/billing";
+			sessionStorage.shopping_cart=shopping_cart;
 		});
-		cart.innerHTML='Carrito('+shopping_cart.length+')';
-	function suma(id) {
-		btnShop[id-1].setAttribute('class', 'btn btn-success')
-		btnShop[id-1].innerHTML="Agregado!";
-		btnShop[id-1].setA
 
-		shopping_cart.push(id);
-		cart.innerHTML='Carrito('+shopping_cart.length+')';
-		sessionStorage.shopping_cart=shopping_cart;
+		function Shoping() {
+			cart.innerHTML='Carrito('+(shopping_cart.length-1)+')';
+		}
+		cart.innerHTML='Carrito('+(shopping_cart.length-1)+')';
+
+	function suma(id) {
+		if (btnShop[id-1].innerHTML=="Agrega al Carrito") {
+			btnShop[id-1].innerHTML="Agregado";
+			shopping_cart.push(id);
+			Shoping();	
+
+		}else if(btnShop[id-1].innerHTML=="Agregado") {
+			btnShop[id-1].innerHTML="Agrega al Carrito";
+			if(shopping_cart.length==1){
+				alert("Stores esta"+shopping_cart[0])
+			}else{
+				shopping_cart=arrayRemove(shopping_cart,id);
+				Shoping();
+			}
+		};
 	}
+
+	// function dataCount() {
+
+	// }
+		// var dataXHR={{ csrf_token()}};
+	// var xhr= new XMLHttpRequest();
+	// xhr.onreadystatechange=function (argument) {
+	// 		if (this.status==200 && this.readyState==4) {
+	// 			console.log(this.responseText);
+	// 		}
+	// 	}
+	// 	xhr.open("POST", "/billing", true);
+	// 	xhr.send(shopping_cart);
+
 </script>
 	
 @endsection

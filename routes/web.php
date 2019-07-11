@@ -15,13 +15,30 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/', function () {
-    return view('components.home');
+    return view('components.home',[
+    		"title"=>"Home"
+    ]);
 });
 
 Route::get('/add', function () {
-   return view('components.add');
+   return view('components.add',[
+   		"title"=>"Agregar Productos"
+   ]);
 });
 
 Route::post('/products', 'productsController@create');
 Route::get('/products','productsController@show');
 Route::get('/billing','productsController@billing');
+Route::post('/billing','productsController@returnProducts');
+
+// Route::post('/billing',function (Request $request){
+	
+// });
+// Route::post('/response',function (Request $request){
+	
+// if($request->isJson())
+// {
+// 	return $request->all();
+// }
+ 
+//  });
