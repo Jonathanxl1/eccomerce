@@ -21,6 +21,8 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         //
         'billing',
-        'response'
+        'response',
+        'mkpdf',
+        'rpdf'
     ];
 }

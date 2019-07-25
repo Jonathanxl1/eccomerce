@@ -77,12 +77,14 @@ class productsController extends Controller
             $ArrayData=array_filter($data);
             $ArrayNum=array_map('intval', $ArrayData);
             $products=Products::whereIn('id',$ArrayNum)->get();
-            foreach ($products as $key ) {
-                echo $key["id"];
-                echo $key["product_name"];              
-                echo $key["price"];
-                echo "<br>";
-             }
+            
+            return json_encode($products);
+            // foreach ($products as $key ) {
+            //     echo $key["id"];
+            //     echo $key["product_name"];              
+            //     echo $key["price"];
+            //     echo "<br>";
+            //  }
         }else{
             return "False";
         }
