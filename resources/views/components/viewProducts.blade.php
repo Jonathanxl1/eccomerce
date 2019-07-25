@@ -16,6 +16,7 @@
     				<span  class="btn btn-primary" onclick="suma({{ $product->id }})">Agrega al Carrito</span>
   				</div>
 			</div>
+<<<<<<< HEAD
 	    @endforeach	
 	</div>
 </div>
@@ -71,6 +72,27 @@
 	// 	xhr.open("POST", "/billing", true);
 	// 	xhr.send(shopping_cart);
 
+=======
+
+
+
+
+    	{{-- <p>This is product_name {{ $product->product_name }}</p>
+    	<p>This is price {{ $product->price }}</p>
+    	<p>This is amount {{ $product->amount }}</p> --}}
+	    @endforeach	
+	</div>
+</div>
+<script type="text/javascript" >
+		var shopping_cart=[];
+		var cart = document.getElementById('shopping_cart');
+		cart.innerHTML='Carrito('+shopping_cart.length+')';
+	function suma(id) {
+		shopping_cart.push(id);
+		cart.innerHTML='Carrito('+shopping_cart.length+')';
+		this.classList.toggle('btn-secondary');
+	}
+>>>>>>> master
 </script>
 	
 @endsection

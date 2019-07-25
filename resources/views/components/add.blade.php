@@ -6,7 +6,11 @@
 			<h1 class="text-center">Agregar Productos</h1>
 		</div>
 	</div>
+<<<<<<< HEAD
 	<div class="row justify-content-center">
+=======
+	<div class="row align-content-center">
+>>>>>>> master
 		<form method="post" action="/products">
       @csrf
       <fieldset class="form-group">
