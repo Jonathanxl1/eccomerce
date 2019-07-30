@@ -19,6 +19,10 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-        //
+        // Excepcion para el bloqueo por CORS
+        'billing',
+        'response',
+        'mkpdf',
+        'rpdf'
     ];
 }
