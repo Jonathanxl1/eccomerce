@@ -30,31 +30,5 @@ Route::post('/products', 'productsController@create');
 Route::get('/products','productsController@show');
 Route::get('/billing','productsController@billing');
 Route::post('/billing','productsController@returnProducts');
-
 Route::post('/mkpdf','pdfController@create');
-// Route::post('/rpdf','pdfController@index');
 
-
-Route::get('/pdf',function(){
-// $pdf = App::make('dompdf.wrapper');
-// $pdf->loadHTML('<h1 style="text-align:center">Soy una Factura</h1>');
-// return $pdf->stream();
-// $pdf->loadView('components.factura',[
-	// "data" => ""
-// ]);
-// return $pdf->stream();
-
-
-});
-
-// Route::post('/billing',function (Request $request){
-	
-// });
-// Route::post('/response',function (Request $request){
-	
-// if($request->isJson())
-// {
-// 	return $request->all();
-// }
- 
-//  });

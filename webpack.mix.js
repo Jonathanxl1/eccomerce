@@ -13,3 +13,6 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css');
+
+mix.copy('resources/img/favicon.ico', 'public/');
+/*Generando Icon de Marca (command line: npm run dev)*/

@@ -6,14 +6,14 @@
 			<h1 class="text-center">Agregar Productos</h1>
 		</div>
 	</div>
-<<<<<<< HEAD
-	<div class="row justify-content-center">
-=======
-	<div class="row align-content-center">
->>>>>>> master
-		<form method="post" action="/products">
+
+	
+
+	<div class="row justify-content-center mt-4">
+    <div class="col-lg-4 col-md-3 col-sm-7"> 
+        <form method="post" action="/products">
       @csrf
-      <fieldset class="form-group">
+      <fieldset class="form-group text-center">
         <label for="product_name">Nombre de Producto</label>
         <input type="text" class="form-control" id="product_name" placeholder="e.g: Manzana,Peras,Naranjas.." name="product_name" required>
         {{-- <small class="text-muted">We'll never share your email with anyone else.</small>
@@ -28,23 +28,14 @@
      
           <label for="price">Precio</label>
           <input type="number"  min="0" size="2" class="form-control" id="price" required name="price">
-        
+            
           <label for="best_before">Fecha de Vencimiento</label>
           <input type="date" min="2019-01-01" class="form-control" id="best_before" required name="best_before">
       </fieldset>  
-      
-      
     
-    {{--   <fieldset class="form-group">
-        <label for="exampleInputFile">File input</label>
-        <input type="file" class="form-control-file" id="exampleInputFile">
-        <small class="text-muted">This is some placeholder bEnter emaill>
-      </fieldset> --}}
-     
-     
-    
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary offset-5 mt-3">Agregar</button>
     </form>
+    </div>
 	</div>
-</div>
+
 @endsection

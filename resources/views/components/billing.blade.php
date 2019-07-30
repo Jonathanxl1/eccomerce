@@ -83,20 +83,20 @@
 		alert("Fin del Demo Eccomerce");
 	})
 
-	// var token=document.getElementsByTagName("input")[0];
-	// var dataToken=token.value;
-	// var responsePost;
-	// var data=[sessionStorage.shopping_cart];
+	
+	if(sessionStorage.length==0){
+				let x = confirm("No has seleccionado nada del Carrito, quieres ir a: "+window.location.hostname+"/products");
+				if (x) {
+					location.href="/products";
+				}else{
+					alert("Como tu desees!. Tu mandas!");
+				}	
+	};	
 	var data=sessionStorage.shopping_cart.split(",");
 	/*convierte el String en array con valores de string*/
 	var jsonData = JSON.stringify(data);
-	var jsonTraduc = JSON.parse(jsonData);
-	console.log("Json: "+jsonData);
-	var resArray;
-
-	var meta = {name:"Jonatha",last_name:"Aguasaco"};
-	var cart = document.getElementById("cart");
-
+	var resArray;	
+	var cart = document.getElementById("cart");/**/
 	var table =document.getElementById("table_content");
 
 	var i = 0;
@@ -113,7 +113,6 @@
 
 	function totalRow(value,price,index){
 		
-			console.log(value*price);
 			let priceRow = value*price;
 			trows[index].cells[3].innerHTML=value*price;
 			totalArray(priceRow,index);
@@ -147,7 +146,7 @@
 		totalArray(value.price,index);
 		table.appendChild(tr);
 		i++;
-		console.log("Valor de Index es :"+index);
+		
 		
 	}
 
@@ -159,20 +158,15 @@
 		var xhr= new  XMLHttpRequest();
 			xhr.onreadystatechange=function () {
 				if (this.status==200&&this.readyState==4) {
-					// responsePost=JSON.parse(this.responseText);
+					
 			 		resArray = JSON.parse(this.responseText);
-			 		
-			 		console.log(resArray);
-					console.log(resArray.forEach(goToCart));
+			 		resArray.forEach(goToCart);
+			 	
 				}
 			};
-	// xhr.open("POST","/response",true);
 			xhr.open("POST","/billing",true);
 			xhr.setRequestHeader('Content-Type', 'application/json');
-	// xhr.setRequestHeader('Content-Length', jsonData.length);
-	// xhr.setRequestHeader('Access-Control-Allow-Origin', '*')
 			xhr.send(jsonData);
-
 	}
 
 	AccountPay();
